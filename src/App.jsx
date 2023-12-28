@@ -1,18 +1,26 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useState } from 'react'
 import Card from './components/card/Card';
+import { CardList } from './components/card-list/CardList';
 import './App.css'
 
 function App() {
   const [count, setCount] = useState(0);
-  const akatsukiMembers = useRef({})
+  const [akatsukiMembers, setAkatsukiMembers] = useState({});
+  const reset = false;
 
   useEffect(() => {
-    fetch("https://narutodb.xyz/api/akatsuki")
-    .then(response => response.json())
-    .then(data => akatsukiMembers.current = data)
-  }, [])
+    console.log("load effect")
+    if (akatsukiMembers != undefined) {
+      fetch("https://narutodb.xyz/api/akatsuki")
+      .then(response => response.json())
+      .then(data => {
+        setAkatsukiMembers(data)
+      })
+    }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [reset])
 
-  console.log(akatsukiMembers.current.akatsuki)
+  console.log(akatsukiMembers.akatsuki)
 
 
   return (
@@ -20,6 +28,7 @@ function App() {
       <h1>Vite + React</h1>
       <div className="card">
         <Card/>
+        {akatsukiMembers != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} /> : console.log("empty")}
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
