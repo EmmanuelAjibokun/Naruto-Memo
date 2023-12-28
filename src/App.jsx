@@ -1,20 +1,25 @@
-import { useEffect, useState } from 'react'
-import { Card } from "./components/Card";
+import { useEffect, useRef, useState } from 'react'
+import Card from './components/card/Card';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [count, setCount] = useState(0);
+  const akatsukiMembers = useRef({})
 
   useEffect(() => {
-    
-  })
+    fetch("https://narutodb.xyz/api/akatsuki")
+    .then(response => response.json())
+    .then(data => akatsukiMembers.current = data)
+  }, [])
+
+  console.log(akatsukiMembers.current.akatsuki)
 
 
   return (
     <>
       <h1>Vite + React</h1>
       <div className="card">
-        {/* <Card/> */}
+        <Card/>
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
