@@ -1,12 +1,12 @@
 // import { useRef } from 'react';
 import './card-list.style.css';
-// import { Card } from '../card/Card';
+import Card from '../card/Card';
 
 // eslint-disable-next-line react/prop-types
 export const CardList = ({akatsuki}) => {
+  const selectedIndexes = [];
+
   function getRandomItem(items) {
-    const selectedIndexes = [];
-    console.log(selectedIndexes.length)
     while (selectedIndexes.length != 10) {
       const randomIndex = Math.floor(Math.random() * items.length)
       if (!selectedIndexes.includes(randomIndex))
@@ -17,9 +17,10 @@ export const CardList = ({akatsuki}) => {
   
   return (<div className="card-list">
     {console.log(getRandomItem(akatsuki))}
-    {/* {akatsuki.map(member => (
-      console.log(member)
-      <Card key={monster.id} monster={monster}/>
-    ))} */}
+    {/* {console.log(akatsuki)} */}
+    {selectedIndexes.map(index => (
+      // eslint-disable-next-line react/prop-types
+      akatsuki ? <Card key={akatsuki[index].id} character={akatsuki[index]}/> : null
+    ))}
   </div>)
 }

@@ -1,10 +1,8 @@
 import { useEffect, useState } from 'react'
-import Card from './components/card/Card';
 import { CardList } from './components/card-list/CardList';
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0);
   const [akatsukiMembers, setAkatsukiMembers] = useState({});
   const reset = false;
 
@@ -25,18 +23,8 @@ function App() {
     <>
       <h1>Vite + React</h1>
       <div className="card">
-        <Card/>
         {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} /> : console.log("empty")}
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
       </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
     </>
   )
 }
