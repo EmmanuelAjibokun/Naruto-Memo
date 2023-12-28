@@ -17,18 +17,16 @@ function App() {
         setAkatsukiMembers(data)
       })
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [reset])
 
   console.log(akatsukiMembers.akatsuki)
-
 
   return (
     <>
       <h1>Vite + React</h1>
       <div className="card">
         <Card/>
-        {akatsukiMembers != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} /> : console.log("empty")}
+        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} /> : console.log("empty")}
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
