@@ -6,7 +6,7 @@ import Card from '../card/Card';
 export const CardList = ({akatsuki}) => {
   const selectedIndexes = [];
 
-  function getRandomItem(items) {
+  function getRandomItems(items) {
     while (selectedIndexes.length != 10) {
       const randomIndex = Math.floor(Math.random() * items.length)
       if (!selectedIndexes.includes(randomIndex))
@@ -16,11 +16,11 @@ export const CardList = ({akatsuki}) => {
   }
   
   return (<div className="card-list">
-    {console.log(getRandomItem(akatsuki))}
+    {console.log(getRandomItems(akatsuki))}
     {/* {console.log(akatsuki)} */}
     {selectedIndexes.map(index => (
       // eslint-disable-next-line react/prop-types
-      akatsuki ? <Card key={akatsuki[index].id} character={akatsuki[index]}/> : null
+      akatsuki ? <Card key={akatsuki[index].id} character={akatsuki[index]} getRandomItems={getRandomItems} akatsuki={akatsuki} /> : null
     ))}
   </div>)
 }
