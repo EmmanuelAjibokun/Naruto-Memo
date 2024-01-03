@@ -32,7 +32,7 @@ function App() {
       <h1>Vite + React</h1>
       <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} />
       <div className="card">
-        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} /> : console.log("empty")}
+        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} /> : console.log("empty")}
       </div>
     </>
   )
