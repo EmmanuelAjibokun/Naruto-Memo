@@ -1,14 +1,12 @@
 /* eslint-disable react/prop-types */
 import './card.styles.css';
 
-export default function Card({ character, getRandomItems, akatsuki, firstRender }) {
+export default function Card({ character, getRandomItems, akatsuki}) {
   function handleClick() {
-    firstRender.current = false;
-    console.log(firstRender)
     getRandomItems(akatsuki)
     console.log("clicked")
-    console.log(getRandomItems(akatsuki))
   }
+
   return (
     <div className="card-container" onClick={handleClick}>
       {character.name}

@@ -5,6 +5,7 @@ import ScoreBoard from './components/score/ScoreBoard';
 
 function App() {
   const [akatsukiMembers, setAkatsukiMembers] = useState({});
+  const [selectedIndexes, setSelectedIndexes] = useState([]);
   const firstRender = useRef(true);
   const reset = false;
 
@@ -26,7 +27,7 @@ function App() {
       <h1>Vite + React</h1>
       <ScoreBoard />
       <div className="card">
-        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} /> : console.log("empty")}
+        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} /> : console.log("empty")}
       </div>
     </>
   )
