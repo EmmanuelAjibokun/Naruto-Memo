@@ -1,10 +1,10 @@
 /* eslint-disable react/prop-types */
-// import { useState } from "react"
 
-export default function ScoreBoard({ scores, setScores}) {
+export default function ScoreBoard({ scores, setScores, clickedIDs}) {
   function resetScores() {
     setScores.setCurrentScore(0);
     setScores.setBestScore(0);
+    clickedIDs.current = [];
   }
   return (
     <div>

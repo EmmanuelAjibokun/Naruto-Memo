@@ -11,6 +11,8 @@ function App() {
   const [currentScore, setCurrentScore] = useState(0);
   const [bestScore, setBestScore] = useState(0);
 
+  const clickedIDs = useRef([])
+
   const firstRender = useRef(true);
   const reset = false;
 
@@ -29,10 +31,10 @@ function App() {
 
   return (
     <>
-      <h1>Vite + React</h1>
-      <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} />
+      <h1>NarutoMemo</h1>
+      <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} clickedIDs={clickedIDs} />
       <div className="card">
-        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} /> : console.log("empty")}
+        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} clickedIDs={clickedIDs} /> : console.log("empty")}
       </div>
     </>
   )

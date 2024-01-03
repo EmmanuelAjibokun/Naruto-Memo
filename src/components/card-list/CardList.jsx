@@ -1,12 +1,12 @@
 /* eslint-disable react/prop-types */
-import { useRef } from 'react';
+
 import './card-list.style.css';
 import Card from '../card/Card';
 // import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-export const CardList = ({akatsuki, firstRender, selectedIndexes, setSelectedIndexes, setScores, scores}) => {
-  const clickedIDs = useRef([])
+export const CardList = ({akatsuki, firstRender, selectedIndexes, setSelectedIndexes, setScores, scores, clickedIDs}) => {
+
 
 
   function getRandomItems(items) {

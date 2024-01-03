@@ -7,7 +7,7 @@ export default function Card({ character, getRandomItems, akatsuki, setScores, s
   function handleClick() {
     if (clickedIDs.current.includes(character.id)) {
       clickedIDs.current = [];
-      if (scores.bestScore > scores.current)
+      if (scores.bestScore > scores.currentScore)
         setScores.setCurrentScore(0)
       else {
         setScores.setBestScore(scores.currentScore)
