@@ -24,8 +24,8 @@ export default function Card({ character, getRandomItems, akatsuki, setScores, s
 
   return (
     <div className="card-container" onClick={handleClick}>
+      <img alt="character" src={character.images[0]} />
       {character.name}
-      {/* <img alt="monster" src={`https://robohash.org/${props.monster.id}?set=set2&size=180x180`} /> */}
       {/* <h2> {props.monster.name}</h2>
       <p> {props.monster.email}</p> */}
     </div>
