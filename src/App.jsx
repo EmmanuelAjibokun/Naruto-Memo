@@ -6,6 +6,7 @@ import ScoreBoard from './components/score/ScoreBoard';
 function App() {
   const [akatsukiMembers, setAkatsukiMembers] = useState({});
   const [selectedIndexes, setSelectedIndexes] = useState([]);
+  const [error, setError] = useState(null);
 
   // scoreboard 
   const [currentScore, setCurrentScore] = useState(0);
@@ -24,6 +25,9 @@ function App() {
       .then(data => {
         setAkatsukiMembers(data)
       })
+      .catch(error => {
+        setError(error.message); // Update error state with error message
+      });
     }
   }, [reset])
 
@@ -35,6 +39,7 @@ function App() {
       <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} clickedIDs={clickedIDs} />
       <div className="card">
         {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} clickedIDs={clickedIDs} /> : console.log("empty")}
+        {error && <p>Error: {error}</p>}
       </div>
     </>
   )
