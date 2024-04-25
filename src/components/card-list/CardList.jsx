@@ -5,7 +5,7 @@ import Card from '../card/Card';
 // import { useState } from 'react';
 
 // eslint-disable-next-line react/prop-types
-export const CardList = ({akatsuki, firstRender, selectedIndexes, setSelectedIndexes, setScores, scores, clickedIDs}) => {
+export const CardList = ({results, firstRender, selectedIndexes, setSelectedIndexes, setScores, scores, clickedIDs}) => {
 
 
 
@@ -25,9 +25,9 @@ export const CardList = ({akatsuki, firstRender, selectedIndexes, setSelectedInd
   
   return (<div className="card-list">
     {console.log(firstRender.current)}
-    {firstRender.current ? getRandomItems(akatsuki): null}
+    {firstRender.current ? getRandomItems(results): null}
     {selectedIndexes.map(index => (
-      akatsuki ? <Card key={akatsuki[index].id} character={akatsuki[index]} getRandomItems={getRandomItems} akatsuki={akatsuki} firstRender={firstRender} setScores={setScores} scores={scores} clickedIDs={clickedIDs} /> : null
+      results ? <Card key={results[index].id} character={results[index]} getRandomItems={getRandomItems} results={results} firstRender={firstRender} setScores={setScores} scores={scores} clickedIDs={clickedIDs} /> : null
     ))}
     {console.log("current: ", selectedIndexes)}
   </div>)

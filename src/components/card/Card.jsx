@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './card.styles.css';
 
-export default function Card({ character, getRandomItems, akatsuki, setScores, scores, clickedIDs}) {
+export default function Card({ character, getRandomItems, results, setScores, scores, clickedIDs}) {
 
   console.log(clickedIDs.current)
   function handleClick() {
@@ -17,14 +17,14 @@ export default function Card({ character, getRandomItems, akatsuki, setScores, s
       clickedIDs.current.push(character.id)
       setScores.setCurrentScore(scores.currentScore + 1)
       console.log(character.id)
-      getRandomItems(akatsuki)
+      getRandomItems(results)
       console.log("clicked")
     }
   }
 
   return (
     <div className="card-container" onClick={handleClick}>
-      <img alt="character" src={character.images[0]} />
+      <img alt="character image" src={character.image} />
       {character.name}
       {/* <h2> {props.monster.name}</h2>
       <p> {props.monster.email}</p> */}

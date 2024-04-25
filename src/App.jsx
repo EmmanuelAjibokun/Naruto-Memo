@@ -4,7 +4,7 @@ import './App.css'
 import ScoreBoard from './components/score/ScoreBoard';
 
 function App() {
-  const [akatsukiMembers, setAkatsukiMembers] = useState({});
+  const [characters, setCharacters] = useState({});
   const [selectedIndexes, setSelectedIndexes] = useState([]);
   const [error, setError] = useState(null);
 
@@ -19,11 +19,11 @@ function App() {
 
   useEffect(() => {
     console.log("load effect")
-    if (akatsukiMembers != undefined) {
-      fetch("https://narutodb.xyz/api/akatsuki")
+    if (characters != undefined) {
+      fetch("https://rickandmortyapi.com/api/character")
       .then(response => response.json())
       .then(data => {
-        setAkatsukiMembers(data)
+        setCharacters(data)
       })
       .catch(error => {
         setError(error.message); // Update error state with error message
@@ -31,14 +31,14 @@ function App() {
     }
   }, [reset])
 
-  console.log(akatsukiMembers.akatsuki)
+  console.log(characters.results)
 
   return (
     <>
       <h1>NarutoMemo</h1>
       <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} clickedIDs={clickedIDs} />
       <div className="card">
-        {akatsukiMembers.akatsuki != undefined ? <CardList akatsuki={akatsukiMembers.akatsuki} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} clickedIDs={clickedIDs} /> : console.log("empty")}
+        {characters.results != undefined ? <CardList results={characters.results} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} clickedIDs={clickedIDs} /> : console.log("empty")}
         {error && <p>Error: {error}</p>}
       </div>
     </>
