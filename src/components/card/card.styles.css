@@ -10,8 +10,28 @@
   backface-visibility: hidden;
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
+
+  width: calc(33.33% - 20px); /* Adjust as needed */
+  margin-bottom: 20px;
 }
 
 .card-container:hover {
   transform: scale(1.05);
+}
+
+.card-container div {
+  font-weight: 700;
+}
+
+
+@media screen and (max-width: 768px) {
+  .card-container {
+    width: calc(50% - 20px); /* Adjust for smaller screens */
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card-container {
+    width: calc(100% - 20px); /* Adjust for mobile screens */
+  }
 }
