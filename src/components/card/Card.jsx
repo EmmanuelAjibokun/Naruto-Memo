@@ -6,6 +6,8 @@ export default function Card({ character, getRandomItems, results, setScores, sc
   function handleClick() {
     if (clickedIDs.current.includes(character.id)) {
       clickedIDs.current = [];
+      navigator.vibrate(200)
+      console.log("you failed")
       if (scores.bestScore > scores.currentScore)
         setScores.setCurrentScore(0)
       else {

@@ -1,6 +1,7 @@
 .card-container {
   display: flex;
   flex-direction: column;
+  color: black;
   background-color: #95dada;
   border: 1px solid grey;
   border-radius: 5px;
@@ -11,8 +12,9 @@
   transform: translateZ(0);
   transition: transform 0.25s ease-out;
 
-  width: calc(33.33% - 20px); /* Adjust as needed */
+  /* width: calc(33.33% - 20px); Adjust as needed */
   margin-bottom: 20px;
+  max-width: 200px;
 }
 
 .card-container:hover {
@@ -32,6 +34,7 @@
 
 @media screen and (max-width: 480px) {
   .card-container {
-    width: calc(100% - 20px); /* Adjust for mobile screens */
+    /* width: calc(100% - 20px); Adjust for mobile screens */
+    /* width: fit-content; */
   }
 }

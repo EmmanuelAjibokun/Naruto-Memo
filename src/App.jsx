@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+
 import { useRef, useEffect, useState } from 'react'
 import { CardList } from './components/card-list/CardList';
 import './App.css'
@@ -34,14 +36,14 @@ function App() {
   console.log(characters.results)
 
   return (
-    <>
-      <h1>NarutoMemo</h1>
+    <div className='app'>
+      <h1 className='h1'>Rick'N'MortyMemo</h1>
       <ScoreBoard scores={{currentScore, bestScore}} setScores={{setCurrentScore, setBestScore}} clickedIDs={clickedIDs} />
       <div className="card">
         {characters.results != undefined ? <CardList results={characters.results} firstRender={firstRender} selectedIndexes={selectedIndexes} setSelectedIndexes={setSelectedIndexes} setScores={{setCurrentScore, setBestScore}} scores={{currentScore, bestScore}} clickedIDs={clickedIDs} /> : console.log("empty")}
         {error && <p>Error: {error}</p>}
       </div>
-    </>
+    </div>
   )
 }
 

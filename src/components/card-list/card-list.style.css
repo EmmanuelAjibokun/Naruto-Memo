@@ -7,13 +7,13 @@
 
   display: flex;
   flex-wrap: wrap;
-  justify-content: center; /* Adjust as needed */
-  width: 100%;
+  justify-content: center; /* Adjust as needed
+  width: 100%; */
   gap: 20px;
 }
 
 @media screen and (min-width: 1000px) {
   .card-list {
-    justify-content: space-between; /* Adjust for mobile screens */
+    /* justify-content: space-between; */
   }
 }
