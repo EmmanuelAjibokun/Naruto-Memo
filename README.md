@@ -12,3 +12,8 @@ Currently, two official plugins are available:
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 
 It is a web based memory game that uses hooks to manage and utilize state while fetching and using data from an external API.
+
+## Tools
+- CSS
+- React JS
+- tsParticles
