@@ -4,11 +4,10 @@
   width: 100%;
 }
 
-.app {
-  display: flex;
+/* .app {
   flex-direction: column;
   width: 100%;
-}
+} */
 
 .h1 {
   text-wrap: wrap;
@@ -29,9 +28,23 @@
   
   .card {
     padding: 1em;
+    
   }
 }
 
 .read-the-docs {
   color: #888;
+}
+
+
+.app {
+  position: relative;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.content {
+  color: black;
+  position: relative;
+  z-index: 1;
 }

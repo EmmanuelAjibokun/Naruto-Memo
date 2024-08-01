@@ -1,4 +1,5 @@
 /* eslint-disable react/prop-types */
+import "./score.style.css"
 
 export default function ScoreBoard({ scores, setScores, clickedIDs}) {
   function resetScores() {

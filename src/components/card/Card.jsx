@@ -1,7 +1,7 @@
 /* eslint-disable react/prop-types */
 import './card.styles.css';
 
-export default function Card({ character, getRandomItems, results, setScores, scores, clickedIDs}) {
+export default function Card({ character, getRandomItems, results, setScores, scores, clickedIDs, setNewBestScore}) {
 
   function handleClick() {
     if (clickedIDs.current.includes(character.id)) {
@@ -13,6 +13,7 @@ export default function Card({ character, getRandomItems, results, setScores, sc
       else {
         setScores.setBestScore(scores.currentScore)
         setScores.setCurrentScore(0)
+        setNewBestScore(true)
       }
     } else {
       clickedIDs.current.push(character.id)
